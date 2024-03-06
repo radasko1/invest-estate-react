@@ -1,4 +1,4 @@
-export type PropertyModel =
+export type PropertyTypeModel =
   | "house"
   | "apartment"
   | "commercial"
