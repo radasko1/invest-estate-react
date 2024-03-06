@@ -6,7 +6,7 @@ type Props = {
   icon: string;
   name: string;
   isActive: boolean;
-  onPropertyClick(type: PropertyTypeModel): void;
+  onClick(type: PropertyTypeModel): void;
 };
 
 export default function Property({
@@ -14,16 +14,12 @@ export default function Property({
   icon,
   name,
   isActive,
-  onPropertyClick,
+  onClick,
 }: Props) {
-  function handleClick() {
-    onPropertyClick(id);
-  }
-
   return (
     <div
       className={"property" + (isActive ? " active" : "")}
-      onClick={handleClick}
+      onClick={() => onClick(id)}
     >
       <div className="property-wrapper">
         <div className="property-icon-wrapper">

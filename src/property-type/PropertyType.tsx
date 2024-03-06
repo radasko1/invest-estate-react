@@ -6,12 +6,12 @@ import { PropertyTypeModel } from "../models/property.type";
 
 type Props = {
   activeProperty: PropertyTypeModel;
-  onPropertyClick(type: PropertyTypeModel): void;
+  onClick(type: PropertyTypeModel): void;
 };
 
 export default function PropertyType({
   activeProperty,
-  onPropertyClick,
+  onClick,
 }: Props) {
   return (
     <div className="property-type">
@@ -24,7 +24,7 @@ export default function PropertyType({
             icon={item.icon}
             name={item.name}
             isActive={activeProperty === item.id}
-            onPropertyClick={onPropertyClick}
+            onClick={onClick}
           />
         ))}
       </ul>

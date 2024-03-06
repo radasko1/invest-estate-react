@@ -4,14 +4,18 @@ import Location from "../location/Location";
 import { PropertyTypeModel } from "../models/property.type";
 import PriceRange from "../price-range/PriceRange";
 import PropertyType from "../property-type/PropertyType";
-import Rooms from "../rooms/Rooms";
+import RoomCountFilter from "../rooms/RoomCountFilter";
 
 export default function Filters() {
   const [propertyType, setPropertyType] = useState<PropertyTypeModel>(null);
+  const [roomCount, setRoomCount] = useState<number>(0);
 
-  function handlePropertyClick(type: PropertyTypeModel) {
-    console.log("clicked:", type);
+  function handlePropertyTypeClick(type: PropertyTypeModel) {
     setPropertyType(type);
+  }
+
+  function handleRoomFilter(rooms: number) {
+    setRoomCount(rooms);
   }
 
   function handleReset() {
@@ -28,11 +32,11 @@ export default function Filters() {
       </div>
       <PropertyType
         activeProperty={propertyType}
-        onPropertyClick={handlePropertyClick}
+        onClick={handlePropertyTypeClick}
       />
       <Location />
       <PriceRange />
-      <Rooms />
+      <RoomCountFilter rooms={roomCount} onChange={handleRoomFilter} />
     </div>
   );
 }
