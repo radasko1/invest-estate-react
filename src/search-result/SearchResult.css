@@ -1,0 +1,19 @@
+.search-result {
+  padding-top: 3rem;
+  padding-left: 2rem;
+  padding-right: 1rem;
+  flex-basis: 35%;
+  /*todo*/
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.search-result-title {
+  margin: 0 0 2rem;
+}
+
+.search-result-items {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}

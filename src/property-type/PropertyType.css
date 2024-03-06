@@ -1,0 +1,12 @@
+.property-type {
+  /* width should be +12px */
+}
+
+.property-type-list {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -6px;
+  margin-right: -6px;
+}

@@ -1,0 +1,12 @@
+.location-select {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.location-select-name {
+  margin-left: 0.5rem;
+}

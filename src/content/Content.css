@@ -1,0 +1,7 @@
+.main-content {
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}

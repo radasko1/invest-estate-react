@@ -1,0 +1,9 @@
+.menu {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-basis: 30rem;
+  margin: 0 0 0 2rem;
+}

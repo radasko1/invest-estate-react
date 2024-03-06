@@ -1,0 +1,18 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgb(32, 38, 60);
+  width: 15rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.search-bar-input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: #f4f5fb;
+  margin-left: 1rem;
+}

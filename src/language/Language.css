@@ -1,0 +1,10 @@
+.language {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.language-current-lang {
+  display: block;
+  margin-right: 0.5rem;
+}

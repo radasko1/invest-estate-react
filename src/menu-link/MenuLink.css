@@ -1,0 +1,14 @@
+.menu-item {
+  display: block;
+}
+
+.menu-link {
+  text-decoration: none;
+  color: #f4f5fb;
+  padding: 1.5rem 0.5rem;
+  display: inline-block;
+}
+
+.menu-link.active {
+  border-top: 3px solid var(--color-lime);
+}

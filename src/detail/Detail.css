@@ -1,0 +1,43 @@
+.detail {
+  flex-basis: 45%;
+  background-color: #fff;
+  padding: 1rem;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.detail-title {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.detail-address {
+}
+
+.detail-row-box > * {
+  width: 100%;
+  display: block;
+}
+
+.detail-address-value {
+  margin-left: 0.5rem;
+  color: #333;
+}
+
+.detail-row-icon-box {
+  display: flex;
+  align-items: center;
+  margin-left: 2rem;
+}
+.detail-row-icon-box:first-child {
+  margin-left: 0;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}

@@ -1,0 +1,91 @@
+.result-item {
+  background-color: #fff;
+  margin-bottom: 1rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  cursor: pointer;
+}
+.result-item:last-child {
+  margin-bottom: 0;
+}
+
+.result-item.active {
+  border-color: var(--color-green);
+}
+
+.result-item-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+
+.result-item-image {
+  flex-basis: 40%;
+  max-width: 40%;
+}
+
+.result-item-content {
+  flex-basis: 60%;
+  max-width: 60%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.result-item-title {
+  margin: 0;
+}
+
+.result-item-street {
+  margin: 0;
+  font-style: italic;
+  color: #333;
+}
+
+.result-item-rent {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.result-item-room-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.result-item-info {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.result-item-favorite {
+  width: 40px;
+  height: 35px;
+  background-color: #dbdbdb;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.result-item-favorite:hover {
+  color: red;
+  background-color: #f4f5fb;
+}
+
+.money {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.block {
+  display: block;
+  margin-left: 0.5rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
