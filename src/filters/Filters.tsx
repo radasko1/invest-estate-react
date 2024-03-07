@@ -1,14 +1,19 @@
 import "./Filters.css";
 import { useState } from "react";
 import Location from "../location/Location";
-import { PropertyTypeModel } from "../models/property.type";
 import PriceRange from "../price-range/PriceRange";
 import PropertyType from "../property-type/PropertyType";
 import RoomCountFilter from "../rooms/RoomCountFilter";
+import { PriceRangeModel } from "../models/price-range.type";
+import { PropertyTypeModel } from "../models/property.type";
 
 export default function Filters() {
   const [propertyType, setPropertyType] = useState<PropertyTypeModel>(null);
   const [roomCount, setRoomCount] = useState<number>(0);
+  const [priceRange, setPriceRange] = useState<PriceRangeModel>({
+    min: 0,
+    max: 0,
+  });
 
   function handlePropertyTypeClick(type: PropertyTypeModel) {
     setPropertyType(type);
@@ -16,6 +21,15 @@ export default function Filters() {
 
   function handleRoomFilter(rooms: number) {
     setRoomCount(rooms);
+  }
+
+  // reducer?
+  function handleMinRange(value: number) {
+    setPriceRange({ ...priceRange, min: value });
+  }
+  // reducer?
+  function handleMaxRange(value: number) {
+    setPriceRange({ ...priceRange, max: value });
   }
 
   function handleReset() {
@@ -35,7 +49,7 @@ export default function Filters() {
         onClick={handlePropertyTypeClick}
       />
       <Location />
-      <PriceRange />
+      <PriceRange onMinChange={handleMinRange} onMaxChange={handleMaxRange} />
       <RoomCountFilter rooms={roomCount} onChange={handleRoomFilter} />
     </div>
   );
