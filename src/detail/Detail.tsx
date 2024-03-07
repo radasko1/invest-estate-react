@@ -1,25 +1,33 @@
 import "./Detail.css";
+import { useContext } from "react";
+import { PROPERTY_LIST } from "../constants/property-list.constant";
+import { PropertyContext } from "../context/property.context";
 
-type Props = {
-  title: string;
-  address: string;
-  rating: number;
-};
+export default function Detail() {
+  const {property} = useContext(PropertyContext);
+  const propertyInformation = PROPERTY_LIST.filter(
+    (prop) => prop.id === property,
+  )[0];
 
-export default function Detail({ title, address, rating }: Props) {
+  if (!propertyInformation) {
+    return <div>no property selected</div>;
+  }
+
   return (
     <div className="detail">
       <div className="detail-images"></div>
       {/**/}
       <div className="detail-row">
         <div className="detail-address">
-          <h3 className="detail-title">{title}</h3>
+          <h3 className="detail-title">{propertyInformation.name}</h3>
           <div className="detail-address">
             <i className="fas fa-map-marker-alt"></i>
-            <span className="detail-address-value">{address}</span>
+            <span className="detail-address-value">
+              {propertyInformation.address}
+            </span>
           </div>
         </div>
-        <div className="detail-rating">{rating}</div>
+        <div className="detail-rating">{5}</div>
       </div>
       {/*  */}
       <div className="detail-row">

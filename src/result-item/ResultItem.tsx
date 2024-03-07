@@ -1,54 +1,67 @@
 import "./ResultItem.css";
+import { useState } from "react";
+import { EstatePropertyModel } from "../models/estate-property.type";
 
-type Props = {
-  title: string;
-  image: string;
-  street: string;
-  rent: number;
-  bedroom: number;
-  bathroom: number;
-  surface: number;
-  isActive?: boolean;
+// TODO show all results, but after 'Apply filter' it will be filtered
+type Props = EstatePropertyModel & {
+  active: boolean;
+  onClick(id: string): void;
 };
 
 export default function ResultItem({
-  title,
-  image,
-  street,
-  rent,
-  bedroom,
-  bathroom,
-  surface,
-  isActive = false,
+  id,
+  name,
+  mainImage,
+  address,
+  monthRental,
+  roomCount,
+  bathroomCount,
+  livingSurface,
+  active,
+  onClick,
 }: Props) {
+  const [favorite, setFavorite] = useState(false);
+
+  function handleFavorite(event: any) {
+    event.stopPropagation();
+    event.preventDefault();
+    setFavorite(!favorite);
+  }
+
   return (
-    <div className={"result-item" + (isActive ? " active" : "")}>
+    <div
+      className={"result-item" + (active ? " active" : "")}
+      onClick={() => onClick(id)}
+    >
       <div className="result-item-wrapper">
         <div className="result-item-image">
-          <img src={image} alt="House" />
+          <img src={mainImage} alt="House" />
         </div>
         <div className="result-item-content">
-          <h3 className="result-item-title">{title}</h3>
-          <p className="result-item-street">{street}</p>
+          <h3 className="result-item-title">{name}</h3>
+          <p className="result-item-street">{address}</p>
           <p className="result-item-rent">
-            <span className="money">${rent}</span>/month
+            <span className="money">${monthRental}</span>/month
           </p>
           <div className="result-item-room-info">
             <div className="result-item-info">
               <i className="fas fa-bed"></i>
-              <span className="block">{bedroom}</span>
+              <span className="block">{roomCount}</span>
             </div>
             <div className="result-item-info">
               <i className="fas fa-shower"></i>
-              <span className="block">{bathroom}</span>
+              <span className="block">{bathroomCount}</span>
             </div>
             <div className="result-item-info">
               <i className="fas fa-expand-arrows-alt"></i>
-              <span className="block">{surface}</span>
+              <span className="block">{livingSurface}</span>
             </div>
           </div>
         </div>
-        <div className="result-item-favorite">
+        <div
+          className={"result-item-favorite" + (favorite ? " selected" : "")}
+          onClick={handleFavorite}
+        >
           <i className="fa fa-heart"></i>
         </div>
       </div>

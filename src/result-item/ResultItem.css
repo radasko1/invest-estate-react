@@ -72,7 +72,11 @@
 }
 .result-item-favorite:hover {
   color: red;
-  background-color: #f4f5fb;
+  background-color: transparent;
+}
+.result-item-favorite.selected {
+  color: red;
+  background-color: transparent;
 }
 
 .money {

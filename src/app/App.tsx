@@ -14,11 +14,7 @@ export default function App() {
       <Content>
         <Filters />
         <SearchResult />
-        <Detail
-          title="SandStudio Apartment"
-          address="Willow Creek 1523, Pensylvania"
-          rating={3.5}
-        />
+        <Detail />
       </Content>
     </Layout>
   );
