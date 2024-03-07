@@ -5,13 +5,18 @@ import { PropertyContext } from "../context/property.context";
 
 export default function Detail() {
   const { property } = useContext(PropertyContext);
+
+  if (!property) {
+    return (
+      <div className="detail">
+        <p>No property selected</p>
+      </div>
+    );
+  }
+
   const propertyInformation = PROPERTY_LIST.filter(
     (prop) => prop.id === property,
   )[0];
-
-  if (!propertyInformation) {
-    return <div>No property selected</div>;
-  }
 
   return (
     <div className="detail">

@@ -17,6 +17,10 @@ export default function PriceRange({
     return parseInt(value, 10);
   }
 
+  function handleNegativeValue(value: number) {
+    return value < 0 ? 0 : value;
+  }
+
   return (
     <div className="price-range">
       <h3>Price range per month</h3>
@@ -26,7 +30,7 @@ export default function PriceRange({
           <div className="price-range-value">
             <input
               type="number"
-              value={priceRange.min}
+              value={handleNegativeValue(priceRange.min)}
               onChange={(event) => onMinChange(toNumber(event.target.value))}
             />
           </div>
@@ -39,7 +43,7 @@ export default function PriceRange({
           <div className="price-range-value">
             <input
               type="number"
-              value={priceRange.max}
+              value={handleNegativeValue(priceRange.max)}
               onChange={(event) => onMaxChange(toNumber(event.target.value))}
             />
           </div>

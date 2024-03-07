@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function Content({ children }: Props) {
-  const [property, setProperty] = useState(""); // context
+  const [property, setProperty] = useState<string>(""); // context
 
   // PropertyContext may be inside some wrap component which has all context
   // ...also can have many methods and value as Redux Store inside, setProperty, setFilter, setFavorite,...

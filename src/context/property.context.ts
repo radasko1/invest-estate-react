@@ -5,4 +5,6 @@ type PropertyContextModel = {
   setProperty(value: string): void;
 };
 
-export const PropertyContext = createContext<PropertyContextModel>({} as PropertyContextModel);
+export const PropertyContext = createContext<PropertyContextModel>(
+  {} as PropertyContextModel,
+);
