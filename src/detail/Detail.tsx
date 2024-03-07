@@ -4,13 +4,13 @@ import { PROPERTY_LIST } from "../constants/property-list.constant";
 import { PropertyContext } from "../context/property.context";
 
 export default function Detail() {
-  const {property} = useContext(PropertyContext);
+  const { property } = useContext(PropertyContext);
   const propertyInformation = PROPERTY_LIST.filter(
     (prop) => prop.id === property,
   )[0];
 
   if (!propertyInformation) {
-    return <div>no property selected</div>;
+    return <div>No property selected</div>;
   }
 
   return (
@@ -34,19 +34,22 @@ export default function Detail() {
         <div className="detail-row-box">
           <div>Over-night rental:</div>
           <div>
-            <span className="money">$40</span>/night
+            <span className="money">${propertyInformation.dayRental}</span>
+            /night
           </div>
         </div>
         <div className="detail-row-box">
           <div>Week rental:</div>
           <div>
-            <span className="money">$70</span>/night
+            <span className="money">${propertyInformation.weekRental}</span>
+            /night
           </div>
         </div>
         <div className="detail-row-box">
           <div>Month rental:</div>
           <div>
-            <span className="money">$3200</span>/night
+            <span className="money">${propertyInformation.monthRental}</span>
+            /night
           </div>
         </div>
       </div>
@@ -54,28 +57,42 @@ export default function Detail() {
       <div className="detail-row justify-start">
         <div className="detail-row-icon-box">
           <i className="fas fa-bed"></i>
-          <span className="block">4</span>
+          <span className="block">{propertyInformation.roomCount}</span>
         </div>
         <div className="detail-row-icon-box">
           <i className="fas fa-shower"></i>
-          <span className="block">2</span>
+          <span className="block">{propertyInformation.bathroomCount}</span>
         </div>
         <div className="detail-row-icon-box">
           <i className="fas fa-expand-arrows-alt"></i>
-          <span className="block">4</span>
+          <span className="block">{propertyInformation.livingSurface}</span>
         </div>
-        <div className="detail-row-icon-box">
-          <i className="fas fa-car"></i>
-          <span className="block">1 garage</span>
-        </div>
-        <div className="detail-row-icon-box">
-          <i className="fas fa-tint"></i>
-          <span className="block">pool</span>
-        </div>
-        <div className="detail-row-icon-box">
-          <i className="fas fa-wifi"></i>
-          <span className="block">Free</span>
-        </div>
+        {propertyInformation.garageSlots > 0 && (
+          <div className="detail-row-icon-box">
+            <i className="fas fa-car"></i>
+            <span className="block">
+              {propertyInformation.garageSlots} slots
+            </span>
+          </div>
+        )}
+        {propertyInformation.pool && (
+          <div className="detail-row-icon-box">
+            <i className="fas fa-tint"></i>
+            <span className="block">pool</span>
+          </div>
+        )}
+        {propertyInformation.freeWifi && (
+          <div className="detail-row-icon-box">
+            <i className="fas fa-wifi"></i>
+            <span className="block">Free</span>
+          </div>
+        )}
+        {propertyInformation.airConditioner && (
+          <div className="detail-row-icon-box">
+            <i className="fas fa-temperature-low"></i>
+            <span className="block">Air Conditioner</span>
+          </div>
+        )}
       </div>
     </div>
   );

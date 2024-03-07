@@ -19,7 +19,7 @@ export default function PriceRange({
 
   return (
     <div className="price-range">
-      <h3>Price range per hour</h3>
+      <h3>Price range per month</h3>
       <div className="price-range-wrapper">
         <div className="price-range-min">
           <span className="price-range-label">Min</span>
