@@ -7,7 +7,7 @@ type Props = {
 
 export default function Content({ children }: Props) {
   return (
-    <div className="main-content">
+    <div className="main-content container">
       {children.map((child, index) => (
         <React.Fragment key={index}>{child}</React.Fragment>
       ))}

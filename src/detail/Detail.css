@@ -1,5 +1,6 @@
 .detail {
   flex-basis: 45%;
+  max-width: 45%;
   background-color: #fff;
   padding: 1rem;
 }

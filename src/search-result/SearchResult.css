@@ -1,11 +1,9 @@
 .search-result {
-  padding-top: 3rem;
-  padding-left: 2rem;
-  padding-right: 1rem;
   flex-basis: 35%;
-  /*todo*/
-  margin-left: 2rem;
-  margin-right: 2rem;
+  max-width: 35%;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .search-result-title {
