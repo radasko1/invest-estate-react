@@ -7,13 +7,17 @@ import RoomCountFilter from "../rooms/RoomCountFilter";
 import { PriceRangeModel } from "../models/price-range.type";
 import { PropertyTypeModel } from "../models/property.type";
 
+const INITIAL_PROPERTY_TYPE = null;
+const INITIAL_ROOM_COUNT = 0;
+const INITIAL_PRICE_RANGE: PriceRangeModel = { min: 0, max: 0 };
+
 export default function Filters() {
-  const [propertyType, setPropertyType] = useState<PropertyTypeModel>(null);
-  const [roomCount, setRoomCount] = useState<number>(0);
-  const [priceRange, setPriceRange] = useState<PriceRangeModel>({
-    min: 0,
-    max: 0,
-  });
+  const [propertyType, setPropertyType] = useState<PropertyTypeModel>(
+    INITIAL_PROPERTY_TYPE,
+  );
+  const [roomCount, setRoomCount] = useState<number>(INITIAL_ROOM_COUNT);
+  const [priceRange, setPriceRange] =
+    useState<PriceRangeModel>(INITIAL_PRICE_RANGE);
 
   function handlePropertyTypeClick(type: PropertyTypeModel) {
     setPropertyType(type);
@@ -32,17 +36,25 @@ export default function Filters() {
     setPriceRange({ ...priceRange, max: value });
   }
 
+  function handleFilter() {
+    //
+  }
+
   function handleReset() {
-    setPropertyType(null);
-    setRoomCount(0);
-    setPriceRange({ min: 0, max: 0 });
+    setPropertyType(INITIAL_PROPERTY_TYPE);
+    setRoomCount(INITIAL_ROOM_COUNT);
+    setPriceRange(INITIAL_PRICE_RANGE);
   }
 
   return (
     <div className="filters">
       <div className="filters-header">
         <h2 className="filters-title">Filters</h2>
-        <button type="button" className="filters-button" onClick={handleReset}>
+        <button
+          type="button"
+          className="filters-reset-button"
+          onClick={handleReset}
+        >
           Reset
         </button>
       </div>
@@ -51,9 +63,13 @@ export default function Filters() {
         onClick={handlePropertyTypeClick}
       />
       <Location />
-      <PriceRange priceRange={priceRange} onMinChange={handleMinRange} onMaxChange={handleMaxRange} />
+      <PriceRange
+        priceRange={priceRange}
+        onMinChange={handleMinRange}
+        onMaxChange={handleMaxRange}
+      />
       <RoomCountFilter rooms={roomCount} onChange={handleRoomFilter} />
-      <button type="button" className="button">
+      <button type="button" className="filters-button" onClick={handleFilter}>
         Apply Filters
       </button>
     </div>

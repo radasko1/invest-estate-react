@@ -17,14 +17,28 @@
   margin: 0;
 }
 
-.filters-button {
-  background-color: transparent;
+.filters-button,
+.filters-reset-button {
+  cursor: pointer;
+  font-weight: 600;
   outline: none;
   border: none;
+}
+
+.filters-reset-button {
+  background-color: transparent;
   color: var(--color-green);
-  font-weight: 600;
   font-size: 15px;
   line-height: 20px;
-  cursor: pointer;
   padding: 0;
+}
+
+.filters-button {
+  background-color: var(--color-green);
+  color: var(--color-white);
+  font-size: 16px;
+  text-align: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  width: 100%;
 }
