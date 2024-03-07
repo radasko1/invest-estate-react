@@ -34,6 +34,8 @@ export default function Filters() {
 
   function handleReset() {
     setPropertyType(null);
+    setRoomCount(0);
+    setPriceRange({ min: 0, max: 0 });
   }
 
   return (
@@ -49,8 +51,11 @@ export default function Filters() {
         onClick={handlePropertyTypeClick}
       />
       <Location />
-      <PriceRange onMinChange={handleMinRange} onMaxChange={handleMaxRange} />
+      <PriceRange priceRange={priceRange} onMinChange={handleMinRange} onMaxChange={handleMaxRange} />
       <RoomCountFilter rooms={roomCount} onChange={handleRoomFilter} />
+      <button type="button" className="button">
+        Apply Filters
+      </button>
     </div>
   );
 }

@@ -1,11 +1,18 @@
 import "./PriceRange.css";
+import { PriceRangeModel } from "../models/price-range.type";
 
 type Props = {
+  priceRange: PriceRangeModel;
   onMinChange(value: number): void;
   onMaxChange(value: number): void;
 };
 
-export default function PriceRange({ onMinChange, onMaxChange }: Props) {
+export default function PriceRange({
+  priceRange,
+  onMinChange,
+  onMaxChange,
+}: Props) {
+  // use state in component and pass object?
   function toNumber(value: string) {
     return parseInt(value, 10);
   }
@@ -19,7 +26,7 @@ export default function PriceRange({ onMinChange, onMaxChange }: Props) {
           <div className="price-range-value">
             <input
               type="number"
-              placeholder="100"
+              value={priceRange.min}
               onChange={(event) => onMinChange(toNumber(event.target.value))}
             />
           </div>
@@ -32,7 +39,7 @@ export default function PriceRange({ onMinChange, onMaxChange }: Props) {
           <div className="price-range-value">
             <input
               type="number"
-              placeholder="500"
+              value={priceRange.max}
               onChange={(event) => onMaxChange(toNumber(event.target.value))}
             />
           </div>
