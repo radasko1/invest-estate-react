@@ -1,7 +1,7 @@
 import "./SearchResult.css";
 import { useEffect } from "react";
 import { usePropertyFilter } from "../hooks/usePropertyFilter.hook";
-import ResultItem from "../result-item/ResultItem";
+import PropertyItem from "../property-item/PropertyItem";
 import { FilterModel } from "../models/filter.type";
 import { PROPERTY_LIST } from "../constants/property-list.constant";
 
@@ -31,7 +31,7 @@ export default function SearchResult({
       ) : (
         <ul className="search-result-items">
           {propertyList.map((property) => (
-            <ResultItem
+            <PropertyItem
               key={property.id}
               propertyData={property}
               active={selectedPropertyId === property.id}

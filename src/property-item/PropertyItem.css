@@ -1,4 +1,4 @@
-.result-item {
+.property-item {
   background-color: #fff;
   margin-bottom: 1rem;
   border-width: 2px;
@@ -6,62 +6,62 @@
   border-color: transparent;
   cursor: pointer;
 }
-.result-item:last-child {
+.property-item:last-child {
   margin-bottom: 0;
 }
 
-.result-item.active {
+.property-item.active {
   border-color: var(--color-green);
 }
 
-.result-item-wrapper {
+.property-item-wrapper {
   position: relative;
   display: flex;
   flex-direction: row;
   padding: 1rem;
 }
 
-.result-item-image {
+.property-item-image {
   flex-basis: 40%;
   max-width: 40%;
 }
 
-.result-item-content {
+.property-item-content {
   flex-basis: 60%;
   max-width: 60%;
   padding-left: 1rem;
   padding-right: 1rem;
 }
 
-.result-item-title {
+.property-item-title {
   margin: 0;
 }
 
-.result-item-street {
+.property-item-street {
   margin: 0;
   font-style: italic;
   color: #333;
 }
 
-.result-item-rent {
+.property-item-rent {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.result-item-room-info {
+.property-item-room-info {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.result-item-info {
+.property-item-info {
   display: flex;
   align-items: center;
   font-size: 14px;
   font-weight: 600;
 }
 
-.result-item-favorite {
+.property-item-favorite {
   width: 40px;
   height: 35px;
   background-color: #dbdbdb;
@@ -70,11 +70,11 @@
   align-items: center;
   justify-content: center;
 }
-.result-item-favorite:hover {
+.property-item-favorite:hover {
   color: red;
   background-color: transparent;
 }
-.result-item-favorite.selected {
+.property-item-favorite.selected {
   color: red;
   background-color: transparent;
 }
