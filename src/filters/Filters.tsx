@@ -20,8 +20,8 @@ export default function Filters({ filter: _filter, onFilter }: Props) {
     setFilter({ ...filter, type });
   }
 
-  function handleRoomFilter(rooms: number) {
-    setFilter({ ...filter, rooms });
+  function handleRoomFilter(min: number, max: number) {
+    setFilter({ ...filter, minRooms: min, maxRooms: max });
   }
 
   // reducer?
@@ -60,7 +60,7 @@ export default function Filters({ filter: _filter, onFilter }: Props) {
         onMinChange={handleMinRange}
         onMaxChange={handleMaxRange}
       />
-      <RoomCountFilter rooms={filter.rooms} onChange={handleRoomFilter} />
+      <RoomCountFilter rooms={filter.minRooms} onChange={handleRoomFilter} />
       <button
         type="button"
         className="filters-button"

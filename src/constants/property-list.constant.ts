@@ -96,4 +96,23 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
       "https://u.realgeeks.media/bakersfieldcah/bakersfield-real-estate/nw-homes-for-sale.jpg",
     images: [""],
   },
+  {
+    id: "prop-5",
+    name: "VirginiaBlock",
+    address: "Vanilla Ice 404/11, San Francisco",
+    type: "apartment",
+    dayRental: 40,
+    weekRental: 670,
+    monthRental: 4700,
+    roomCount: 2,
+    bathroomCount: 1,
+    garageSlots: 1,
+    pool: false,
+    airConditioner: true,
+    freeWifi: true,
+    livingSurface: 170,
+    mainImage:
+      "https://www.sfassessor.org/sites/default/files/tool/houses-06.jpg",
+    images: [""],
+  },
 ];

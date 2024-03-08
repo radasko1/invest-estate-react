@@ -1,22 +1,28 @@
 import "./Detail.css";
-import { useContext } from "react";
+import { useEffect, useState } from "react";
 import { PROPERTY_LIST } from "../constants/property-list.constant";
-import { PropertyContext } from "../context/property.context";
+import { EstatePropertyModel } from "../models/estate-property.type";
 
-export default function Detail() {
-  const { property } = useContext(PropertyContext);
+type Props = {
+  property: string;
+};
 
-  if (!property) {
+export default function Detail({ property }: Props) {
+  const [propertyInformation, setPropertyInformation] =
+    useState<EstatePropertyModel | null>(null);
+
+  useEffect(() => {
+    const foundProperty = PROPERTY_LIST.find((prop) => prop.id === property);
+    setPropertyInformation(foundProperty || null);
+  }, [property]);
+
+  if (!propertyInformation) {
     return (
       <div className="detail">
         <p>No property selected</p>
       </div>
     );
   }
-
-  const propertyInformation = PROPERTY_LIST.filter(
-    (prop) => prop.id === property,
-  )[0];
 
   return (
     <div className="detail">
@@ -34,7 +40,7 @@ export default function Detail() {
         </div>
         <div className="detail-rating">{5}</div>
       </div>
-      {/*  */}
+      {/**/}
       <div className="detail-row">
         <div className="detail-row-box">
           <div>Over-night rental:</div>

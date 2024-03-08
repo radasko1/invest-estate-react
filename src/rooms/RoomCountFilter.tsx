@@ -2,7 +2,7 @@ import "./Rooms.css";
 
 type Props = {
   rooms: number;
-  onChange(value: number): void;
+  onChange(min: number, max: number): void;
 };
 
 export default function RoomCountFilter({ rooms, onChange }: Props) {
@@ -17,7 +17,7 @@ export default function RoomCountFilter({ rooms, onChange }: Props) {
             value="1"
             name="rooms"
             checked={rooms === 1}
-            onChange={() => onChange(1)}
+            onChange={() => onChange(1,1)}
           />
           <label htmlFor="one">1</label>
         </div>
@@ -28,7 +28,7 @@ export default function RoomCountFilter({ rooms, onChange }: Props) {
             value="2"
             name="rooms"
             checked={rooms === 2}
-            onChange={() => onChange(2)}
+            onChange={() => onChange(2,2)}
           />
           <label htmlFor="two">2</label>
         </div>
@@ -39,7 +39,7 @@ export default function RoomCountFilter({ rooms, onChange }: Props) {
             value="3"
             name="rooms"
             checked={rooms === 3}
-            onChange={() => onChange(3)}
+            onChange={() => onChange(3,3)}
           />
           <label htmlFor="three">3</label>
         </div>
@@ -50,7 +50,7 @@ export default function RoomCountFilter({ rooms, onChange }: Props) {
             value="4+"
             name="rooms"
             checked={rooms === 4}
-            onChange={() => onChange(4)}
+            onChange={() => onChange(4,-1)}
           />
           <label htmlFor="four">4+</label>
         </div>

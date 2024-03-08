@@ -2,21 +2,23 @@ import "./ResultItem.css";
 import { useState } from "react";
 import { EstatePropertyModel } from "../models/estate-property.type";
 
-// TODO show all results, but after 'Apply filter' it will be filtered
-type Props = EstatePropertyModel & {
+type Props = {
+  propertyData: EstatePropertyModel;
   active: boolean;
   onClick(id: string): void;
 };
 
 export default function ResultItem({
-  id,
-  name,
-  mainImage,
-  address,
-  monthRental,
-  roomCount,
-  bathroomCount,
-  livingSurface,
+  propertyData: {
+    id,
+    name,
+    mainImage,
+    address,
+    monthRental,
+    roomCount,
+    bathroomCount,
+    livingSurface,
+  },
   active,
   onClick,
 }: Props) {
@@ -24,7 +26,6 @@ export default function ResultItem({
 
   function handleFavorite(event: any) {
     event.stopPropagation();
-    event.preventDefault();
     setFavorite(!favorite);
   }
 
