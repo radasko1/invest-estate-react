@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Content.css";
-import Detail from "../detail/Detail";
+import PropertyDetail from "../property-detail/PropertyDetail";
 import Filters from "../filters/Filters";
 import PropertyList from "../property-list/PropertyList";
 import { INIT_FILTER } from "../../constants/init-filter.constant";
@@ -21,7 +21,7 @@ export default function Content() {
         selectedPropertyId={selectedPropertyId}
         onPropertyClick={(id) => setSelectedPropertyId(id)}
       />
-      <Detail key="app_property_detail" property={selectedPropertyId} />
+      <PropertyDetail key="app_property_detail" property={selectedPropertyId} />
     </div>
   );
 }

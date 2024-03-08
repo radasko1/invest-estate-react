@@ -1,41 +1,41 @@
-.detail {
+.property-detail {
   flex-basis: 45%;
   max-width: 45%;
   background-color: #fff;
   padding: 1rem;
 }
 
-.detail-row {
+.property-detail-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
 }
 
-.detail-title {
+.property-detail-title {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.detail-address {
+.property-detail-address {
 }
 
-.detail-row-box > * {
+.property-detail-row-box > * {
   width: 100%;
   display: block;
 }
 
-.detail-address-value {
+.property-detail-address-value {
   margin-left: 0.5rem;
   color: #333;
 }
 
-.detail-row-icon-box {
+.property-detail-row-icon-box {
   display: flex;
   align-items: center;
   margin-left: 2rem;
 }
-.detail-row-icon-box:first-child {
+.property-detail-row-icon-box:first-child {
   margin-left: 0;
 }
 
