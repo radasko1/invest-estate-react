@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Content.css";
 import Detail from "../detail/Detail";
 import Filters from "../filters/Filters";
-import SearchResult from "../search-result/SearchResult";
+import PropertyList from "../property-list/PropertyList";
 import { INIT_FILTER } from "../constants/init-filter.constant";
 import { FilterModel } from "../models/filter.type";
 
@@ -15,7 +15,7 @@ export default function Content() {
   return (
     <div className="main-content container">
       <Filters key="app_filter" filter={filter} onFilter={setFilter} />
-      <SearchResult
+      <PropertyList
         key="app_search_result"
         filter={filter}
         selectedPropertyId={selectedPropertyId}

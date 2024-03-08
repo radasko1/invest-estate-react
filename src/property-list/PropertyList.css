@@ -1,4 +1,4 @@
-.search-result {
+.property-list {
   flex-basis: 35%;
   max-width: 35%;
   padding-top: 2rem;
@@ -6,11 +6,11 @@
   padding-right: 1rem;
 }
 
-.search-result-title {
+.property-list-title {
   margin: 0 0 2rem;
 }
 
-.search-result-items {
+.property-list-items {
   margin: 0;
   padding: 0;
   list-style-type: none;

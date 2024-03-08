@@ -1,4 +1,4 @@
-import "./SearchResult.css";
+import "./PropertyList.css";
 import { useEffect } from "react";
 import { usePropertyFilter } from "../hooks/usePropertyFilter.hook";
 import PropertyItem from "../property-item/PropertyItem";
@@ -11,7 +11,7 @@ type Props = {
   onPropertyClick(id: string): void;
 };
 
-export default function SearchResult({
+export default function PropertyList({
   filter,
   selectedPropertyId,
   onPropertyClick,
@@ -24,12 +24,12 @@ export default function SearchResult({
   }, [filter]);
 
   return (
-    <div className="search-result">
-      <h2 className="search-result-title">Search results</h2>
+    <div className="property-list">
+      <h2 className="property-list-title">Search results</h2>
       {!propertyList.length ? (
         <p>No items found</p>
       ) : (
-        <ul className="search-result-items">
+        <ul className="property-list-items">
           {propertyList.map((property) => (
             <PropertyItem
               key={property.id}
