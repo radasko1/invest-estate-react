@@ -1,9 +1,9 @@
 import "./PropertyList.css";
 import { useEffect } from "react";
-import { usePropertyFilter } from "../hooks/usePropertyFilter.hook";
+import { usePropertyFilter } from "../../hooks/usePropertyFilter.hook";
 import PropertyItem from "../property-item/PropertyItem";
-import { FilterModel } from "../models/filter.type";
-import { PROPERTY_LIST } from "../constants/property-list.constant";
+import { FilterModel } from "../../models/filter.type";
+import { PROPERTY_LIST } from "../../constants/property-list.constant";
 
 type Props = {
   filter: FilterModel;

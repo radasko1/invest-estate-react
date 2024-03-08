@@ -1,5 +1,5 @@
 import "./Property.css";
-import { PropertyTypeModel } from "../models/property.type";
+import { PropertyTypeModel } from "../../models/property.type";
 
 type Props = {
   id: PropertyTypeModel;
