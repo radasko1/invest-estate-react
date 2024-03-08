@@ -1,4 +1,4 @@
-import { PropertyTypeModel } from "./property.type";
+import { PropertyTypeModel } from "./property.model";
 
 export type FilterModel = {
   type: PropertyTypeModel;

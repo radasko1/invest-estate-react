@@ -4,7 +4,7 @@ import {
     HOUSE_PROPERTY,
     LAND_PLOT_PROPERTY,
     PropertyTypeModel
-} from "../models/property.type";
+} from "../models/property.model";
 
 type PropertyType= {
     id: PropertyTypeModel;

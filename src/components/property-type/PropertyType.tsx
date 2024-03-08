@@ -2,7 +2,7 @@ import React from "react";
 import "./PropertyType.css";
 import Property from "../property/Property";
 import { PropertyTypeList } from "../../constants/property-type.constant";
-import { PropertyTypeModel } from "../../models/property.type";
+import { PropertyTypeModel } from "../../models/property.model";
 
 type Props = {
   activeProperty: PropertyTypeModel;
