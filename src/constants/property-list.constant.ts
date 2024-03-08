@@ -115,4 +115,23 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
       "https://www.sfassessor.org/sites/default/files/tool/houses-06.jpg",
     images: [""],
   },
+  {
+    id: "prop-6",
+    name: "BrickSalmon",
+    address: "Gulliano Street 10/45, San Francisco",
+    type: "apartment",
+    dayRental: 45,
+    weekRental: 690,
+    monthRental: 4800,
+    roomCount: 4,
+    bathroomCount: 1,
+    garageSlots: 1,
+    pool: true,
+    airConditioner: true,
+    freeWifi: true,
+    livingSurface: 170,
+    mainImage:
+      "https://lh3.googleusercontent.com/proxy/7y5k3sENcinwjW_meLCPPXN15-QwEmrgDxWkoiP7YpeQPJiMdFXY0pVzkXXfhi0vQUBiX6EsUsZ6nQNICUuKl982q22573T9Wj2YBiP_mBVirt4Kua4yYuYY2cJLxQ",
+    images: [""],
+  },
 ];

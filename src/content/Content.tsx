@@ -18,6 +18,7 @@ export default function Content() {
       <SearchResult
         key="app_search_result"
         filter={filter}
+        selectedPropertyId={selectedPropertyId}
         onPropertyClick={(id) => setSelectedPropertyId(id)}
       />
       <Detail key="app_property_detail" property={selectedPropertyId} />
