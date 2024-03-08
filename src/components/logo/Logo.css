@@ -1,5 +1,7 @@
 .logo {
   font-size: 18px;
-  color: #f4f5fb;
+  color: var(--color-white);
   margin-right: auto;
+  user-select: none;
+  pointer-events: none;
 }

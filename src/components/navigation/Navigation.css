@@ -1,9 +1,9 @@
 .navigation {
-  background-color: #0b0f1f;
+  background-color: var(--color-black);
   padding-left: 1rem;
   padding-right: 1rem;
   display: flex;
   align-items: center;
   flex-direction: row;
-  color: #f4f5fb;
+  color: var(--color-white);
 }

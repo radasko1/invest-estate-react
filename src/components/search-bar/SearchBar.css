@@ -13,6 +13,6 @@
   background-color: transparent;
   outline: none;
   border: none;
-  color: #f4f5fb;
+  color: var(--color-white);
   margin-left: 1rem;
 }
