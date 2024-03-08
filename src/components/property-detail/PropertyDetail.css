@@ -17,9 +17,6 @@
   margin-bottom: 0.5rem;
 }
 
-.property-detail-address {
-}
-
 .property-detail-row-box > * {
   width: 100%;
   display: block;
@@ -37,6 +34,39 @@
 }
 .property-detail-row-icon-box:first-child {
   margin-left: 0;
+}
+.property-detail-big-image,
+.property-detail-image {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+.property-detail-big-image {
+  width: calc(100% - (100% / 3));
+  flex-basis: calc(100% - (100% / 3));
+  margin-right: 6px;
+}
+.property-detail-images {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+  margin-bottom: 1rem;
+}
+.property-detail-image-column {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% / 3);
+  flex-basis: calc(100% / 3);
+  margin-left: 6px;
+}
+.property-detail-image {
+  flex-basis: calc(100% / 3);
+  max-height: 100%;
+  width: auto;
+  margin-top: 12px;
+}
+.property-detail-image:first-child {
+  margin-top: 0;
 }
 
 .justify-start {

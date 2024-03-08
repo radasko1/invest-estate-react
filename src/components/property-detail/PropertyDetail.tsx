@@ -26,7 +26,23 @@ export default function PropertyDetail({ property }: Props) {
 
   return (
     <div className="property-detail">
-      <div className="property-detail-images"></div>
+      <div className="property-detail-images">
+        <div
+          className="property-detail-big-image"
+          style={{ backgroundImage: `url('${propertyInformation.mainImage}')` }}
+        ></div>
+        <div className="property-detail-image-column">
+          {propertyInformation.images
+            .filter((image, index) => index < 3)
+            .map((image, index) => (
+              <div
+                key={"image_" + index}
+                className="property-detail-image"
+                style={{ backgroundImage: `url('${image}')` }}
+              ></div>
+            ))}
+        </div>
+      </div>
       {/**/}
       <div className="property-detail-row">
         <div className="property-detail-address">
