@@ -1,4 +1,4 @@
-import { FilterModel } from "../models/filter.type";
+import { FilterModel } from "../models/filter.model";
 
 export const INIT_FILTER: FilterModel = {
   type: null,

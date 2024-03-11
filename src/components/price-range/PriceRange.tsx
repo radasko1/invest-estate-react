@@ -1,5 +1,5 @@
 import "./PriceRange.css";
-import { PriceRangeModel } from "../../models/price-range.type";
+import { PriceRangeModel } from "../../models/price-range.model";
 
 type Props = {
   priceRange: PriceRangeModel;

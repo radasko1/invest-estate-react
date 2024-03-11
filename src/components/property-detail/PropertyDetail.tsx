@@ -1,7 +1,7 @@
 import "./PropertyDetail.css";
 import { useEffect, useState } from "react";
 import { PROPERTY_LIST } from "../../constants/property-list.constant";
-import { EstatePropertyModel } from "../../models/estate-property.type";
+import { EstatePropertyModel } from "../../models/estate-property.model";
 
 type Props = {
   property: string;

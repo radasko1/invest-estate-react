@@ -1,4 +1,4 @@
-import "./Rooms.css";
+import "./RoomCountFilter.css";
 
 type Props = {
   rooms: number;

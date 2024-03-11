@@ -1,6 +1,6 @@
 import "./PropertyItem.css";
 import { useState } from "react";
-import { EstatePropertyModel } from "../../models/estate-property.type";
+import { EstatePropertyModel } from "../../models/estate-property.model";
 
 type Props = {
   propertyData: EstatePropertyModel;

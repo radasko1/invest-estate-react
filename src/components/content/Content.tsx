@@ -4,7 +4,7 @@ import PropertyDetail from "../property-detail/PropertyDetail";
 import Filters from "../filters/Filters";
 import PropertyList from "../property-list/PropertyList";
 import { INIT_FILTER } from "../../constants/init-filter.constant";
-import { FilterModel } from "../../models/filter.type";
+import { FilterModel } from "../../models/filter.model";
 
 export default function Content() {
   const [selectedPropertyId, setSelectedPropertyId] = useState<string>("");

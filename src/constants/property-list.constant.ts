@@ -1,4 +1,4 @@
-import { EstatePropertyModel } from "../models/estate-property.type";
+import { EstatePropertyModel } from "../models/estate-property.model";
 
 export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
