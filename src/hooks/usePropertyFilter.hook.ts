@@ -9,35 +9,31 @@ export const usePropertyFilter = (
   // execute when 'filter' is changed
   return React.useMemo(() => {
     return propertyList.filter((property) => {
-      const filterTuple: boolean[] = [];
-
-      // don't include estates, which has...
-      // ...different type than wanted
+      // Different type than wanted
       if (filter.type && filter.type !== property.type) {
-        filterTuple.push(false);
+        return false;
       }
-      // ...different location than wanted
+      // Different location than wanted
       if (filter.location && filter.location.value !== property.location) {
-        filterTuple.push(false);
+        return false;
       }
-      // ...monthly rent lower than wanted
+      // Monthly rent lower than wanted
       if (filter.minPrice && filter.minPrice > property.monthRental) {
-        filterTuple.push(false);
+        return false;
       }
-      // ...monthly rent higher than wanted
+      // Monthly rent higher than wanted
       if (filter.maxPrice && filter.maxPrice < property.monthRental) {
-        filterTuple.push(false);
+        return false;
       }
-      // ...less room count than wanted
+      // Less room count than wanted
       if (filter.minRooms && filter.minRooms > property.roomCount) {
-        filterTuple.push(false);
+        return false;
       }
-      // ...higher room count than wanted
+      // Higher room count than wanted
       if (filter.maxRooms && filter.maxRooms < property.roomCount) {
-        filterTuple.push(false);
+        return false;
       }
-
-      return !filterTuple.length || !filterTuple.includes(false);
+      return true;
     });
   }, [filter, propertyList]);
 };
