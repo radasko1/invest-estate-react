@@ -1,10 +1,10 @@
 import "./Filters.css";
 import { useState } from "react";
-import { INIT_FILTER } from "../../constants/init-filter.constant";
 import Location from "../location/Location";
 import PriceRange from "../price-range/PriceRange";
 import PropertyType from "../property-type/PropertyType";
 import RoomCountFilter from "../room-count-filter/RoomCountFilter";
+import { INIT_FILTER } from "../../constants/init-filter.constant";
 import { FilterModel } from "../../models/filter.model";
 import { PropertyTypeModel } from "../../models/property.model";
 

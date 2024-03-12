@@ -1,0 +1,33 @@
+.dropdown {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+}
+
+.dropdown-toggle {
+  display: block;
+  cursor: pointer;
+  padding: 5px 10px;
+}
+
+.dropdown-menu {
+  background-color: #fff;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  z-index: 1;
+  font-size: 14px;
+  color: var(--color-black);
+}
+
+.dropdown-menu li {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.dropdown-menu li:hover {
+  background-color: var(--color-white);
+}
