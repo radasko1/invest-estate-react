@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dropdown.css";
 
-type DropdownOption = string | number;
+type DropdownOption = {
+  label: string;
+  value: any;
+};
 
 type Props = {
   options: Array<DropdownOption>;
@@ -22,7 +25,7 @@ export default function Dropdown({
   );
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  function handleOptionClick(option: string | number) {
+  function handleOptionClick(option: DropdownOption) {
     setSelectedOption(option);
     setActive(false);
 
@@ -57,12 +60,19 @@ export default function Dropdown({
       ref={dropdownRef}
       onClick={() => setActive(!active)}
     >
-      <span className="dropdown-toggle">{selectedOption ?? placeholder}</span>
+      {selectedOption && (
+        <span className="dropdown-toggle">{selectedOption.label}</span>
+      )}
+      {!selectedOption && (
+        <span className="dropdown-toggle dropdown-placeholder">
+          <i>{placeholder}</i>
+        </span>
+      )}
       {active && (
         <ul className="dropdown-menu">
           {options.map((option, index) => (
-            <li key={index} onClick={() => handleOptionClick(option)}>
-              {option}
+            <li key={option.value} onClick={() => handleOptionClick(option)}>
+              {option.label}
             </li>
           ))}
         </ul>
