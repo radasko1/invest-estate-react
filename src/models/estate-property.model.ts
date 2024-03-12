@@ -1,3 +1,4 @@
+import { EstatePropertyLocationType } from "./estate-property-location.type";
 import { PropertyTypeModel } from "./property.model";
 
 export type EstatePropertyModel = {
@@ -5,6 +6,7 @@ export type EstatePropertyModel = {
   name: string;
   address: string;
   type: PropertyTypeModel;
+  location: EstatePropertyLocationType;
   // latX: number;
   // latY: number
   // state: string;

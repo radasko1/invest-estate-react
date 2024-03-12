@@ -50,7 +50,7 @@ export default function RoomCountFilter({ rooms, onChange }: Props) {
             value="4+"
             name="rooms"
             checked={rooms === 4}
-            onChange={() => onChange(4,-1)}
+            onChange={() => onChange(4,99)}
           />
           <label htmlFor="four">4+</label>
         </div>

@@ -1,16 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import "./Dropdown.css";
-
-type DropdownOption = {
-  label: string;
-  value: any;
-};
+import { DropdownOptionModel } from "../../models/dropdown-option.model";
 
 type Props = {
-  options: Array<DropdownOption>;
+  options: Array<DropdownOptionModel>;
   showFirstOption?: boolean;
   placeholder?: string;
-  onSelect?: (option: DropdownOption) => void;
+  onSelect?: (option: DropdownOptionModel) => void;
 };
 
 export default function Dropdown({
@@ -20,12 +16,11 @@ export default function Dropdown({
   onSelect,
 }: Props) {
   const [active, setActive] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<DropdownOption | null>(
-    null,
-  );
+  const [selectedOption, setSelectedOption] =
+    useState<DropdownOptionModel | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  function handleOptionClick(option: DropdownOption) {
+  function handleOptionClick(option: DropdownOptionModel) {
     setSelectedOption(option);
     setActive(false);
 

@@ -9,24 +9,35 @@ export const usePropertyFilter = (
   // execute when 'filter' is changed
   return React.useMemo(() => {
     return propertyList.filter((property) => {
-      const { minPrice, maxPrice, minRooms, maxRooms, type } = filter;
+      const filterTuple: boolean[] = [];
 
-      // default values (init values, after reset)
-      const priceFilterDefaultValue = minPrice < 0;
-      const roomNumberFilterDefaultValue = minRooms < 0;
-      const typeDefaultValue = !type;
+      // don't include estates, which has...
+      // ...different type than wanted
+      if (filter.type && filter.type !== property.type) {
+        filterTuple.push(false);
+      }
+      // ...different location than wanted
+      if (filter.location && filter.location.value !== property.location) {
+        filterTuple.push(false);
+      }
+      // ...monthly rent lower than wanted
+      if (filter.minPrice && filter.minPrice > property.monthRental) {
+        filterTuple.push(false);
+      }
+      // ...monthly rent higher than wanted
+      if (filter.maxPrice && filter.maxPrice < property.monthRental) {
+        filterTuple.push(false);
+      }
+      // ...less room count than wanted
+      if (filter.minRooms && filter.minRooms > property.roomCount) {
+        filterTuple.push(false);
+      }
+      // ...higher room count than wanted
+      if (filter.maxRooms && filter.maxRooms < property.roomCount) {
+        filterTuple.push(false);
+      }
 
-      const isRoomCountMatch =
-        roomNumberFilterDefaultValue ||
-        (property.roomCount >= minRooms && maxRooms < 0) ||
-        property.roomCount <= maxRooms;
-      const isTypeMatch = typeDefaultValue || property.type === filter.type;
-      const isPriceMatch =
-        priceFilterDefaultValue ||
-        (property.monthRental >= minPrice && maxPrice < 0) ||
-        property.monthRental <= maxPrice;
-
-      return isRoomCountMatch && isTypeMatch && isPriceMatch;
+      return !filterTuple.length || !filterTuple.includes(false);
     });
   }, [filter, propertyList]);
 };

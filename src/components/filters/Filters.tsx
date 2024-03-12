@@ -7,6 +7,7 @@ import RoomCountFilter from "../room-count-filter/RoomCountFilter";
 import { INIT_FILTER } from "../../constants/init-filter.constant";
 import { FilterModel } from "../../models/filter.model";
 import { PropertyTypeModel } from "../../models/property.model";
+import { DropdownOptionModel } from "../../models/dropdown-option.model";
 
 type Props = {
   filter: FilterModel;
@@ -33,6 +34,10 @@ export default function Filters({ filter: _filter, onFilter }: Props) {
     setFilter({ ...filter, maxPrice: value });
   }
 
+  function handleLocation(option: DropdownOptionModel) {
+    setFilter({ ...filter, location: option });
+  }
+
   function handleFilterReset() {
     setFilter(INIT_FILTER);
     onFilter(INIT_FILTER);
@@ -51,16 +56,16 @@ export default function Filters({ filter: _filter, onFilter }: Props) {
         </button>
       </div>
       <PropertyType
-        activeProperty={filter.type}
+        activeProperty={filter.type ?? null}
         onClick={handlePropertyTypeClick}
       />
-      <Location />
+      <Location onSelect={handleLocation} />
       <PriceRange
-        priceRange={{ min: filter.minPrice, max: filter.maxPrice }}
+        priceRange={{ min: filter.minPrice ?? -1, max: filter.maxPrice ?? -1}}
         onMinChange={handleMinRange}
         onMaxChange={handleMaxRange}
       />
-      <RoomCountFilter rooms={filter.minRooms} onChange={handleRoomFilter} />
+      <RoomCountFilter rooms={filter.minRooms ?? -1} onChange={handleRoomFilter} />
       <button
         type="button"
         className="filters-button"
