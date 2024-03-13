@@ -11,6 +11,7 @@ import RoomCountFilter from "../room-count-filter/RoomCountFilter";
 
 export default function Filters() {
   const dispatch = useFilterDispatch();
+  // TODO use one state for that
   const [propertyType, setPropertyType] = useState<
     PropertyTypeModel | undefined
   >(undefined);
