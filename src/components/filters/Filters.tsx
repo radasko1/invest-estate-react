@@ -1,46 +1,45 @@
 import "./Filters.css";
 import { useState } from "react";
+import { useFilterDispatch } from "../../context/filter.context";
+import { EstatePropertyLocationType } from "../../models/estate-property-location.type";
+import { NumberRangeModel } from "../../models/number-range.model";
+import { PropertyTypeModel } from "../../models/property.model";
 import Location from "../location/Location";
 import PriceRange from "../price-range/PriceRange";
 import PropertyType from "../property-type/PropertyType";
 import RoomCountFilter from "../room-count-filter/RoomCountFilter";
-import { INIT_FILTER } from "../../constants/init-filter.constant";
-import { FilterModel } from "../../models/filter.model";
-import { PropertyTypeModel } from "../../models/property.model";
-import { DropdownOptionModel } from "../../models/dropdown-option.model";
 
-type Props = {
-  filter: FilterModel;
-  onFilter(filter: FilterModel): void;
-};
+export default function Filters() {
+  const dispatch = useFilterDispatch();
+  const [propertyType, setPropertyType] = useState<
+    PropertyTypeModel | undefined
+  >(undefined);
+  const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
+  const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
+  const [location, setLocation] = useState<
+    EstatePropertyLocationType | undefined
+  >(undefined);
+  const [roomCount, setRoomCount] = useState<NumberRangeModel | undefined>(
+    undefined,
+  );
 
-export default function Filters({ filter: _filter, onFilter }: Props) {
-  const [filter, setFilter] = useState<FilterModel>(_filter);
-
-  function handlePropertyTypeClick(type: PropertyTypeModel) {
-    setFilter({ ...filter, type });
+  function handleReset() {
+    // @ts-ignore
+    dispatch({ type: "RESET" });
+    // is this alright?
+    setMaxPrice(undefined);
+    setMinPrice(undefined);
+    setLocation(undefined);
+    setPropertyType(undefined);
+    setRoomCount(undefined);
   }
 
-  function handleRoomFilter(min: number, max: number) {
-    setFilter({ ...filter, minRooms: min, maxRooms: max });
-  }
-
-  // reducer?
-  function handleMinRange(value: number) {
-    setFilter({ ...filter, minPrice: value });
-  }
-  // reducer?
-  function handleMaxRange(value: number) {
-    setFilter({ ...filter, maxPrice: value });
-  }
-
-  function handleLocation(option: DropdownOptionModel) {
-    setFilter({ ...filter, location: option });
-  }
-
-  function handleFilterReset() {
-    setFilter(INIT_FILTER);
-    onFilter(INIT_FILTER);
+  function handleClick() {
+    dispatch({
+      // @ts-ignore
+      type: "SET_FILTER",
+      payload: { propertyType, location, roomCount, minPrice, maxPrice },
+    });
   }
 
   return (
@@ -50,27 +49,27 @@ export default function Filters({ filter: _filter, onFilter }: Props) {
         <button
           type="button"
           className="filters-reset-button"
-          onClick={handleFilterReset}
+          onClick={handleReset}
         >
           Reset
         </button>
       </div>
       <PropertyType
-        activeProperty={filter.type ?? null}
-        onClick={handlePropertyTypeClick}
+        selectedType={propertyType}
+        onSelect={(type) => setPropertyType(type)}
       />
-      <Location onSelect={handleLocation} />
+      <Location onSelect={(location) => setLocation(location)} />
       <PriceRange
-        priceRange={{ min: filter.minPrice ?? -1, max: filter.maxPrice ?? -1}}
-        onMinChange={handleMinRange}
-        onMaxChange={handleMaxRange}
+        minPrice={minPrice}
+        maxPrice={maxPrice}
+        onMinPriceChange={(price) => setMinPrice(price)}
+        onMaxPriceChange={(price) => setMaxPrice(price)}
       />
-      <RoomCountFilter rooms={filter.minRooms ?? -1} onChange={handleRoomFilter} />
-      <button
-        type="button"
-        className="filters-button"
-        onClick={() => onFilter(filter)}
-      >
+      <RoomCountFilter
+        selectedRoomCount={roomCount}
+        onSelect={(value) => setRoomCount(value)}
+      />
+      <button type="button" className="filters-button" onClick={handleClick}>
         Apply Filters
       </button>
     </div>

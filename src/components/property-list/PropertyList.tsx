@@ -1,21 +1,21 @@
 import "./PropertyList.css";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { usePropertyFilter } from "../../hooks/usePropertyFilter.hook";
 import PropertyItem from "../property-item/PropertyItem";
-import { FilterModel } from "../../models/filter.model";
+import { FilterContext } from "../../context/filter.context";
 import { PROPERTY_LIST } from "../../constants/property-list.constant";
 
 type Props = {
-  filter: FilterModel;
   selectedPropertyId: string;
   onPropertyClick(id: string): void;
 };
 
 export default function PropertyList({
-  filter,
   selectedPropertyId,
   onPropertyClick,
 }: Props) {
+  // TODO filterContext
+  const filter = useContext(FilterContext);
   const propertyList = usePropertyFilter(filter, PROPERTY_LIST);
 
   useEffect(() => {

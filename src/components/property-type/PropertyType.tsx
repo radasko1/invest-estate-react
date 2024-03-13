@@ -1,18 +1,19 @@
 import React from "react";
 import "./PropertyType.css";
 import Property from "../property/Property";
-import { PropertyTypeList } from "../../constants/property-type.constant";
 import { PropertyTypeModel } from "../../models/property.model";
+import { PropertyTypeList } from "../../constants/property-type.constant";
 
-type Props = {
-  activeProperty: PropertyTypeModel;
-  onClick(type: PropertyTypeModel): void;
-};
+export default function PropertyType(props: {
+  selectedType: PropertyTypeModel | undefined;
+  onSelect?: (type: PropertyTypeModel) => void;
+}) {
+  function handleClick(type: PropertyTypeModel) {
+    if (props.onSelect) {
+      props.onSelect(type);
+    }
+  }
 
-export default function PropertyType({
-  activeProperty,
-  onClick,
-}: Props) {
   return (
     <div className="property-type">
       <h3>Property type</h3>
@@ -23,8 +24,8 @@ export default function PropertyType({
             id={item.id}
             icon={item.icon}
             name={item.name}
-            isActive={activeProperty === item.id}
-            onClick={onClick}
+            isActive={props.selectedType === item.id}
+            onClick={() => handleClick(item.id)}
           />
         ))}
       </ul>

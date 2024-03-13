@@ -1,24 +1,30 @@
 import "./PriceRange.css";
-import { PriceRangeModel } from "../../models/price-range.model";
 
-type Props = {
-  priceRange: PriceRangeModel;
-  onMinChange(value: number): void;
-  onMaxChange(value: number): void;
-};
-
-export default function PriceRange({
-  priceRange,
-  onMinChange,
-  onMaxChange,
-}: Props) {
+export default function PriceRange(props: {
+  minPrice: number | undefined;
+  maxPrice: number | undefined;
+  onMaxPriceChange?: (max: number) => void;
+  onMinPriceChange?: (min: number) => void;
+}) {
   // use state in component and pass object?
   function toNumber(value: string) {
     return parseInt(value, 10);
   }
 
-  function handleNegativeValue(value: number) {
-    return value < 0 ? 0 : value;
+  function handleNegativeValue(value: number | undefined) {
+    return !value || value < 0 ? 0 : value;
+  }
+
+  function handleMinChange(min: number) {
+    if (props.onMinPriceChange) {
+      props.onMinPriceChange(min);
+    }
+  }
+
+  function handleMaxChange(max: number) {
+    if (props.onMaxPriceChange) {
+      props.onMaxPriceChange(max);
+    }
   }
 
   return (
@@ -30,8 +36,10 @@ export default function PriceRange({
           <div className="price-range-value">
             <input
               type="number"
-              value={handleNegativeValue(priceRange.min)}
-              onChange={(event) => onMinChange(toNumber(event.target.value))}
+              value={handleNegativeValue(props.minPrice)}
+              onChange={(event) =>
+                handleMinChange(toNumber(event.target.value))
+              }
             />
           </div>
         </div>
@@ -43,8 +51,10 @@ export default function PriceRange({
           <div className="price-range-value">
             <input
               type="number"
-              value={handleNegativeValue(priceRange.max)}
-              onChange={(event) => onMaxChange(toNumber(event.target.value))}
+              value={handleNegativeValue(props.maxPrice)}
+              onChange={(event) =>
+                handleMaxChange(toNumber(event.target.value))
+              }
             />
           </div>
         </div>

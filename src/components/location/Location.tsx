@@ -1,12 +1,18 @@
 import "./Location.css";
-import { DropdownOptionModel } from "../../models/dropdown-option.model";
 import Dropdown from "../dropdown/Dropdown";
+import { EstatePropertyLocationType } from "../../models/estate-property-location.type";
+import { DropdownOptionModel } from "../../models/dropdown-option.model";
 
-type Props = {
-  onSelect?: (option: DropdownOptionModel) => void;
-};
+export default function Location(props: {
+  onSelect?: (option: EstatePropertyLocationType) => void;
+}) {
+  function handleSelect(option: DropdownOptionModel) {
+    if (props.onSelect) {
+      const location = option.value as EstatePropertyLocationType;
+      props.onSelect(location);
+    }
+  }
 
-export default function Location({ onSelect }: Props) {
   return (
     <div className="location">
       <h3>Location</h3>
@@ -15,7 +21,7 @@ export default function Location({ onSelect }: Props) {
           { label: "California", value: "california" },
           { label: "New York", value: "new_york" },
         ]}
-        onSelect={onSelect}
+        onSelect={handleSelect}
       />
     </div>
   );

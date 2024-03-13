@@ -2,8 +2,7 @@ export type PropertyTypeModel =
   | "house"
   | "apartment"
   | "commercial"
-  | "land_plot"
-  | null;
+  | "land_plot";
 export const HOUSE_PROPERTY = "house";
 export const APARTMENT_PROPERTY = "apartment";
 export const COMMERCIAL_PROPERTY = "commercial";
