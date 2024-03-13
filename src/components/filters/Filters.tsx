@@ -1,9 +1,6 @@
 import "./Filters.css";
 import { useState } from "react";
-import { useFilterDispatch } from "../../context/filter.context";
-import { EstatePropertyLocationType } from "../../models/estate-property-location.type";
-import { NumberRangeModel } from "../../models/number-range.model";
-import { PropertyTypeModel } from "../../models/property.model";
+import { FilterState, useFilterDispatch } from "../../context/filter.context";
 import Location from "../location/Location";
 import PriceRange from "../price-range/PriceRange";
 import PropertyType from "../property-type/PropertyType";
@@ -11,35 +8,19 @@ import RoomCountFilter from "../room-count-filter/RoomCountFilter";
 
 export default function Filters() {
   const dispatch = useFilterDispatch();
-  // TODO use one state for that
-  const [propertyType, setPropertyType] = useState<
-    PropertyTypeModel | undefined
-  >(undefined);
-  const [minPrice, setMinPrice] = useState<number | undefined>(undefined);
-  const [maxPrice, setMaxPrice] = useState<number | undefined>(undefined);
-  const [location, setLocation] = useState<
-    EstatePropertyLocationType | undefined
-  >(undefined);
-  const [roomCount, setRoomCount] = useState<NumberRangeModel | undefined>(
-    undefined,
-  );
+  const [filter, setFilter] = useState<FilterState>({});
 
   function handleReset() {
     // @ts-ignore
     dispatch({ type: "RESET" });
-    // is this alright?
-    setMaxPrice(undefined);
-    setMinPrice(undefined);
-    setLocation(undefined);
-    setPropertyType(undefined);
-    setRoomCount(undefined);
+    setFilter({});
   }
 
   function handleClick() {
     dispatch({
       // @ts-ignore
       type: "SET_FILTER",
-      payload: { propertyType, location, roomCount, minPrice, maxPrice },
+      payload: filter,
     });
   }
 
@@ -56,19 +37,20 @@ export default function Filters() {
         </button>
       </div>
       <PropertyType
-        selectedType={propertyType}
-        onSelect={(type) => setPropertyType(type)}
+        selectedType={filter.propertyType}
+        onSelect={(propertyType) => setFilter({ ...filter, propertyType })}
       />
-      <Location onSelect={(location) => setLocation(location)} />
+      {/* TODO */}
+      <Location onSelect={(location) => setFilter({ ...filter, location })} />
       <PriceRange
-        minPrice={minPrice}
-        maxPrice={maxPrice}
-        onMinPriceChange={(price) => setMinPrice(price)}
-        onMaxPriceChange={(price) => setMaxPrice(price)}
+        minPrice={filter.minPrice}
+        maxPrice={filter.maxPrice}
+        onMinPriceChange={(minPrice) => setFilter({ ...filter, minPrice })}
+        onMaxPriceChange={(maxPrice) => setFilter({ ...filter, maxPrice })}
       />
       <RoomCountFilter
-        selectedRoomCount={roomCount}
-        onSelect={(value) => setRoomCount(value)}
+        selectedRoomCount={filter.roomCount}
+        onSelect={(roomCount) => setFilter({ ...filter, roomCount })}
       />
       <button type="button" className="filters-button" onClick={handleClick}>
         Apply Filters
