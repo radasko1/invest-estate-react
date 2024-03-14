@@ -4,7 +4,7 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
     id: "prop-0",
     name: "Grand House",
-    address: "Virginia Boulevard 1444/32, San Francisco",
+    address: "Virginia Boulevard 1444/32, California",
     type: "house",
     location: "california",
     dayRental: 20,
@@ -57,7 +57,7 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
     id: "prop-2",
     name: "Blue Streak",
-    address: "Cumberland St 102/4, San Francisco",
+    address: "Cumberland St 102/4, California",
     type: "apartment",
     location: "california",
     dayRental: 40,
@@ -111,7 +111,7 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
     id: "prop-4",
     name: "Bakers Field",
-    address: "Deming St 209/5, San Francisco",
+    address: "Deming St 209/5, California",
     type: "house",
     location: "california",
     dayRental: 46,
@@ -138,7 +138,7 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
     id: "prop-5",
     name: "Virginia Block",
-    address: "Vanilla Ice 404/11, San Francisco",
+    address: "Vanilla Ice 404/11, California",
     type: "apartment",
     location: "california",
     dayRental: 40,
@@ -165,7 +165,7 @@ export const PROPERTY_LIST: EstatePropertyModel[] = [
   {
     id: "prop-6",
     name: "Brick Salmon",
-    address: "Gulliano Street 10/45, San Francisco",
+    address: "Gulliano Street 10/45, California",
     type: "apartment",
     location: "california",
     dayRental: 45,

@@ -6,6 +6,7 @@ type Props = {
   options: Array<DropdownOptionModel>;
   showFirstOption?: boolean;
   placeholder?: string;
+  selectedOption?: DropdownOptionModel;
   onSelect?: (option: DropdownOptionModel) => void;
 };
 
@@ -13,15 +14,17 @@ export default function Dropdown({
   options,
   showFirstOption = false,
   placeholder = "Choose option",
+  selectedOption,
   onSelect,
 }: Props) {
   const [active, setActive] = useState(false);
-  const [selectedOption, setSelectedOption] =
-    useState<DropdownOptionModel | null>(null);
+  const [selected, setSelected] = useState<DropdownOptionModel | undefined>(
+    selectedOption,
+  );
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
   function handleOptionClick(option: DropdownOptionModel) {
-    setSelectedOption(option);
+    setSelected(option);
     setActive(false);
 
     if (onSelect) {
@@ -29,9 +32,15 @@ export default function Dropdown({
     }
   }
 
+  // Reset selected option
+  useEffect(() => {
+    setSelected(selectedOption);
+  }, [selectedOption]);
+
+  // Select first option
   useEffect(() => {
     if (showFirstOption) {
-      setSelectedOption(options[0]);
+      setSelected(options[0]);
     }
   }, []);
 
@@ -55,10 +64,8 @@ export default function Dropdown({
       ref={dropdownRef}
       onClick={() => setActive(!active)}
     >
-      {selectedOption && (
-        <span className="dropdown-toggle">{selectedOption.label}</span>
-      )}
-      {!selectedOption && (
+      {selected && <span className="dropdown-toggle">{selected.label}</span>}
+      {!selected && (
         <span className="dropdown-toggle dropdown-placeholder">
           <i>{placeholder}</i>
         </span>

@@ -40,8 +40,7 @@ export default function Filters() {
         selectedType={filter.propertyType}
         onSelect={(propertyType) => setFilter({ ...filter, propertyType })}
       />
-      {/* TODO */}
-      <Location onSelect={(location) => setFilter({ ...filter, location })} />
+      <Location location={filter.location} onSelect={(location) => setFilter({ ...filter, location })} />
       <PriceRange
         minPrice={filter.minPrice}
         maxPrice={filter.maxPrice}
