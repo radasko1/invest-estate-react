@@ -23,26 +23,17 @@ export default function Dropdown({
   );
   const dropdownRef = useRef<HTMLDivElement | null>(null);
 
-  function handleOptionClick(option: DropdownOptionModel) {
-    setSelected(option);
-    setActive(false);
-
-    if (onSelect) {
-      onSelect(option);
-    }
-  }
-
-  // Reset selected option
-  useEffect(() => {
-    setSelected(selectedOption);
-  }, [selectedOption]);
-
   // Select first option
   useEffect(() => {
     if (showFirstOption) {
       setSelected(options[0]);
     }
   }, []);
+
+  // Reset selected option
+  useEffect(() => {
+    setSelected(selectedOption);
+  }, [selectedOption]);
 
   useEffect(() => {
     function handleClickOutside(event: Event) {
@@ -57,6 +48,15 @@ export default function Dropdown({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
+
+  function handleOptionClick(option: DropdownOptionModel) {
+    setSelected(option);
+    setActive(false);
+
+    if (onSelect) {
+      onSelect(option);
+    }
+  }
 
   return (
     <div
